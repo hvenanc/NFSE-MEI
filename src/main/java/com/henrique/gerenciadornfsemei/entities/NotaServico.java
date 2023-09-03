@@ -1,7 +1,7 @@
 package com.henrique.gerenciadornfsemei.entities;
 
+import com.henrique.gerenciadornfsemei.entities.dto.AtualizarNFSE;
 import com.henrique.gerenciadornfsemei.entities.dto.CadastroNFSE;
-import com.henrique.gerenciadornfsemei.entities.dto.DetalharNFSE;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -38,5 +38,23 @@ public class NotaServico {
         this.dataEmissao = dados.dataEmissao();
         this.valorNFSE = dados.valorNFSE();
         this.chave = dados.chave();
+    }
+
+    public void atualizarNFSE(AtualizarNFSE dados) {
+        if(dados.chave() != null) {
+            this.chave = dados.chave();
+        }
+        if(dados.CNPJTomador() != null) {
+            this.CNPJTomador = dados.CNPJTomador();
+        }
+        if(dados.valorNFSE() > 0) {
+            this.valorNFSE = dados.valorNFSE();
+        }
+        if(dados.dataEmissao() != null) {
+            this.dataEmissao = dados.dataEmissao();
+        }
+        if(dados.nomeTomador() != null) {
+            this.nomeTomador = dados.nomeTomador();
+        }
     }
 }
